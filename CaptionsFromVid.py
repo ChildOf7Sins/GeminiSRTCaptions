@@ -10,9 +10,9 @@ def generate_captions(video_path):
     model = genai.GenerativeModel('gemini-1.5-pro-latest')
 
     # Upload video file
+    print(f"Uploading file...")
     video = genai.upload_file(video_path)
-
-    print(video.state.name)
+    print(f"Uploading Complete")
 
     # Check whether the file is ready to be used.
     while video.state.name == "PROCESSING":
