@@ -24,7 +24,7 @@ def generate_captions(video_path):
 
     # Generate captions (SRT format assumed)
     response = model.generate_content(
-        ["Please generate SRT captions for this video. Please, make sure the timestampts are in this format 00:00:00,000", video]
+        ["Please generate SRT captions for this video. Please, make sure the timestamps are in this format 00:00:00,000", video]
     )# Generate captions (SRT format assumed)(response)
     # Access and extract the SRT content correctly
     if response.candidates and response.candidates[0].content:
