@@ -1,4 +1,5 @@
 import tkinter as tk
+from pathlib import Path  # For easy path manipulation
 import time
 from tkinter import filedialog
 import google.generativeai as genai
@@ -33,8 +34,11 @@ def generate_captions(video_path):
         raise ValueError("No captions were generated.")  # Extract the SRT content from response
 
 def save_srt(captions, video_path):
-    """Saves the SRT captions to a file."""
-    srt_path = video_path.replace(".mp4", ".srt")  # Or your video extension
+    """Saves the SRT captions to a file, replacing the original extension."""
+    
+    video_path = Path(video_path)  # Convert to Path object
+    srt_path = video_path.with_suffix(".srt")  # Replace extension elegantly
+    
     with open(srt_path, "w", encoding="utf-8") as srt_file:
         srt_file.write(captions)
 
