@@ -25,7 +25,8 @@ def generate_captions(video_path):
 
     # Generate captions (SRT format assumed)
     response = model.generate_content(
-        ["Please generate highly accurate SRT captions for this video, prioritizing clear and concise language. Ensure each caption segment has a minimum duration of 1 second, and the timestamps follow this format: 00:00:00,000", video]
+        ["Please generate highly accurate SRT captions for this video, prioritizing clear and concise language. Ensure the timestamps follow this format: 00:00:00,000", video]
+        #["Please generate highly accurate SRT captions for this video, prioritizing clear and concise language. Ensure each caption segment has a minimum duration of 1 second, and the timestamps follow this format: 00:00:00,000", video]
     )# Generate captions (SRT format assumed)(response)
     # Access and extract the SRT content correctly
     if response.candidates and response.candidates[0].content:
